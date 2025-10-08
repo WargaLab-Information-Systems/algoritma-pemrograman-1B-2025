@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tugas praktikum no 1"/>
+        <attribute name="authors" value="ADIDTYA.PR"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-10-07 10:50:49 PM"/>
+        <attribute name="created" value="QURJRFRZQS5QUjtBRElEVFlBOzIwMjUtMTAtMDc7MDc6NTM6MjUgQU07MjUwMA=="/>
+        <attribute name="edited" value="QURJRFRZQS5QUjtBRElEVFlBOzIwMjUtMTAtMDc7MTA6NTA6NDkgUE07MjsyNjIx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nilai, hadir" type="Real" array="False" size=""/>
+            <declare name="Grade, status" type="String" array="False" size=""/>
+            <output expression="&quot;Masukkan nilai ujian&quot;" newline="True"/>
+            <input variable="nilai"/>
+            <output expression="&quot;Masukkan presentase kehadiran (%):&quot;" newline="True"/>
+            <input variable="hadir"/>
+            <if expression="nilai &gt; 85">
+                <then>
+                    <assign variable="Grade" expression="&quot;A&quot;"/>
+                </then>
+                <else>
+                    <if expression="nilai &gt;= 70">
+                        <then>
+                            <assign variable="Grade" expression="&quot;B&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="nilai &gt;= 60">
+                                <then>
+                                    <assign variable="Grade" expression="&quot;C&quot;"/>
+                                </then>
+                                <else>
+                                    <if expression="nilai &gt;= 50">
+                                        <then>
+                                            <assign variable="Grade" expression="&quot;D&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="Grade" expression="&quot;E&quot;"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <if expression="nilai &gt;= 85 AND hadir &gt;= 90">
+                <then>
+                    <assign variable="status" expression="&quot;Lulus dengan pujian&quot;"/>
+                </then>
+                <else>
+                    <if expression="Grade == &quot;A&quot; OR Grade == &quot;B&quot; OR Grade == &quot;C&quot;">
+                        <then>
+                            <assign variable="status" expression="&quot;Lulus&quot;"/>
+                        </then>
+                        <else>
+                            <assign variable="status" expression="&quot;Tidak Lulus&quot;"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Nilai ujian:&quot; &amp; nilai" newline="True"/>
+            <output expression="&quot;Nilai Grade:&quot; &amp; Grade" newline="True"/>
+            <output expression="&quot;Kehadiran: &quot; &amp; hadir &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Status: &quot; &amp; status" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
