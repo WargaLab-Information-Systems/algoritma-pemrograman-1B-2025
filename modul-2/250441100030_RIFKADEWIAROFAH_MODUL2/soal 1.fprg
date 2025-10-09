@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal 1"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-10-07 02:20:41 AM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtSVZJSEJOQUc7MjAyNS0xMC0wNzswMjowOToxMiBBTTsyNjY5"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtSVZJSEJOQUc7MjAyNS0xMC0wNzswMjoyMDo0MSBBTTsxOzI3NzI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nilaiujian, presentasekehadiran, statuskelulusan" type="Integer" array="False" size=""/>
+            <output expression="&quot;masukkan nilai ujian&quot;" newline="True"/>
+            <input variable="NilaiUjian"/>
+            <if expression="NilaiUjian &gt;= 85">
+                <then>
+                    <output expression="&quot;masukkan presentase kehadiran&quot;" newline="True"/>
+                    <input variable="PresentaseKehadiran"/>
+                    <output expression="&quot;Nilai A&quot;" newline="True"/>
+                    <if expression="PresentaseKehadiran &gt;= 90">
+                        <then>
+                            <output expression="&quot;Status Kelulusan: lulus dengan pujian&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else>
+                    <if expression="NilaiUjian &gt;= 70">
+                        <then>
+                            <output expression="&quot;Nilai B&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="&quot;NilaiUjian &gt;= 60&quot;">
+                                <then>
+                                    <output expression="&quot;Nilai C&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="&quot;NilaiUjian &gt;= 50&quot;">
+                                        <then>
+                                            <output expression="&quot;Nilai D&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Nilai E&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
