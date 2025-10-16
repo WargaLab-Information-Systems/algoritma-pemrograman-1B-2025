@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Tugas TP no 1"/>
+        <attribute name="authors" value="USER"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-10-08 01:39:05 PM"/>
+        <attribute name="created" value="VVNFUjtERVNLVE9QLUIxUlNNT0Q7MjAyNS0xMC0wODswMToyNToyNSBQTTsyNjgz"/>
+        <attribute name="edited" value="VVNFUjtERVNLVE9QLUIxUlNNT0Q7MjAyNS0xMC0wODswMTozOTowNSBQTTsxOzI3OTQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nilai, kehadiran" type="Integer" array="False" size=""/>
+            <output expression="&quot;Masukkan nilai&quot;" newline="True"/>
+            <input variable="nilai"/>
+            <if expression="nilai&gt;=85 and nilai&lt;=100">
+                <then>
+                    <output expression="&quot;Nilai A&quot;" newline="True"/>
+                    <output expression="&quot;Masukkan presentase kehadiran&quot;" newline="True"/>
+                    <input variable="kehadiran"/>
+                    <if expression="kehadiran&gt;=90">
+                        <then>
+                            <if expression="kehadiran&lt;=100">
+                                <then>
+                                    <output expression="&quot;Lulus dengan pujian&quot;" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;Presentase kehadiran kurang dari 90%&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="nilai&lt;70 and nilai&gt;=84">
+                        <then>
+                            <output expression="&quot;Nilai B&quot;" newline="True"/>
+                            <output expression="&quot;Masukkan Presentase kehadiran&quot;" newline="True"/>
+                            <input variable="kehadiran"/>
+                            <if expression="kehadiran&gt;=90">
+                                <then>
+                                    <output expression="&quot;Lulus dengan pujian&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Lulus&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="nilai&lt;60 and nilai&gt;=69">
+                                <then>
+                                    <output expression="&quot;Nilai C&quot;" newline="True"/>
+                                    <output expression="&quot;Tidak lulus&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="nilai&lt;50 and nilai&gt;=59">
+                                        <then>
+                                            <output expression="&quot;Nilai D&quot;" newline="True"/>
+                                            <output expression="&quot;Tidak lulus&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Nilai E&quot;" newline="True"/>
+                                            <output expression="&quot;Tidak lulus&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
