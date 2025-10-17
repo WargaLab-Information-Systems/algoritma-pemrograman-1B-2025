@@ -4,7 +4,6 @@ print()
 bola_merah = 8
 bola_biru = 6
 total_bola = bola_merah + bola_biru
-
 # Jumlah bola yang diambil
 jumlah_bola_diambil = 3
 
