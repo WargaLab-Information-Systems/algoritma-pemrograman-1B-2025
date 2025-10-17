@@ -1,0 +1,2 @@
+jadi pada tugasnya, saya membuat output untuk memunculkan Rental Motor Aconk, lalu saya membuat var motor_matic dengan harga 50000, motor_trail dengan harga 10000, dan harga motor sport dengan harga 75000, lalu disini saya membuat untuk output pemilihan motor
+dan disini saya membuat variabel asuransi dengan harga 15000, sewa nya yaitu 3 kelipatan, dan variabel diskon 10%
