@@ -1,7 +1,7 @@
 Pin = "25018"
 k = 0  
 
-while k < 5:
+while k < 3:
     pin = input("masukkan PIN anda: ")  
     
     banyak = 0
@@ -27,7 +27,7 @@ while k < 5:
 
     else:
         k += 1
-        K = 5 - k
+        K = 3 - k
         if K > 0:
             print(f"PIN salah, coba lagi kesempatan anda masih {K} ")
         
