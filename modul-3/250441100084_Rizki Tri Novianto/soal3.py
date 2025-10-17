@@ -17,7 +17,8 @@ jumlah_simbol = 0
 for huruf in kalimat:
 
     if (huruf >= "a" and huruf <= "z") or (huruf >= "A" and huruf <= "Z"):
-        if huruf == "a" or huruf == "i" or huruf == "u" or huruf == "e" or huruf == "o" or huruf == "A" or huruf == "I" or huruf == "U" or huruf == "E" or huruf == "O":
+        if huruf == "a" or huruf == "i" or huruf == "u" or huruf == "e" or huruf == "o" or \
+            huruf == "A" or huruf == "I" or huruf == "U" or huruf == "E" or huruf == "O":
             vokal = vokal + 1
         else:
             konsonan = konsonan + 1
