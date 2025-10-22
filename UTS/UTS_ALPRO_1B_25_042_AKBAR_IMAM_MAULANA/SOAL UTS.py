@@ -44,3 +44,4 @@ if Subtotal :
 
 for print("apakah ingin melakukan penyewaan kembali")
 print("y/n")
+
