@@ -1,0 +1,2 @@
+disini saya memakai penyeleksi kondisi pemilihan dimulai dari menginputkan pilihan sewa motor, lanjut berapa lama penyewaaan nya jika subtotal lebih dari 15000000 maka dapat diskon 10%
+setelah memasukkan kupon dia juga akan dapat diskon 5% dengan kode "AconkGG"
