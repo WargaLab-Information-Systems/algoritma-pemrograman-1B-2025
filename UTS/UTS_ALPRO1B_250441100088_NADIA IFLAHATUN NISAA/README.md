@@ -1,0 +1,1 @@
+disoalnya kita disuruh menginput nama motor untuk mengecek harganya,jika menyewa lebih dari 3 hari maka asuransinya yaitu 15000,jika subtotal 150000 maka ada diskon 10%,jika memasukkan nama kupon maka diskonnya yaitu 5%.jadi disini kita masukkan variabel dan juga tipe data dari motor tersebut,lalu pakai while true untuk melakukan perulangan.
