@@ -1,0 +1,8 @@
+panjang = int(input("Masukkan panjang:"))
+lebar = int(input("Masukkan lebar:"))
+tinggi = int(input("Masukkan tinggi:"))
+luas_permukaan = 2 * (panjang * lebar + panjang * tinggi + lebar * tinggi )
+print("total luas permukaan:", luas_permukaan)
+volume = (panjang * lebar * tinggi)
+print("total volume:", volume)
+print("="*30)
