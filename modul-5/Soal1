@@ -1,0 +1,24 @@
+lagi = "y"
+while lagi:
+
+    def faktorial(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * faktorial(n - 1)
+
+    while True:
+        nilai = input("Masukkan bilangan bulat non-negatif: ")
+
+        if not nilai.isdigit() or nilai < '0' :
+            print("Input tidak valid! Masukkan hanya angka bulat.")
+        else:
+            n = int(nilai)
+            break
+
+    print(f"Faktorial dari {n} adalah: {faktorial(n)}")
+
+    lagi = input("Apakah anda ingin mencoba lagi? (y/n): ")
+    if lagi == "n":
+        break
+
