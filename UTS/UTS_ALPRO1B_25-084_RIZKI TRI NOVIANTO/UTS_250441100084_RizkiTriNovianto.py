@@ -48,5 +48,5 @@ while mulai == "y":
     asuransi+=1
 
     
-mulai=input("masukkan ya jika ingin menyewa kembali:","ya")
-print(mulai)
+    mulai=input("masukkan ya jika ingin menyewa kembali:","y")
+    print(mulai)
