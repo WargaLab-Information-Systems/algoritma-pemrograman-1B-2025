@@ -1,0 +1,30 @@
+def hitung_gaji_bersih(nama_pegawai, jabatan_kerja, gaji_pokok_bulanan):
+    jabatan_bersih = jabatan_kerja
+    # Tentukan Besaran Bonus
+    if jabatan_bersih == "manager":
+        bonus_persen = 0.10
+    elif jabatan_bersih == "staff":
+        bonus_persen = 0.05
+    else:
+        bonus_persen = 0.00
+    # Perhitungan Gaji Kotor
+    nilai_tunjangan = gaji_pokok_bulanan * bonus_persen
+    gaji_kotor = gaji_pokok_bulanan + nilai_tunjangan
+    PAJAK_TETAP = 0.05 #pphnya
+    potongan_pajak = gaji_pokok_bulanan * PAJAK_TETAP
+    gaji_akhir = gaji_kotor - potongan_pajak #gaji akhir
+    print("\n===SLIP GAJI BULANAN===")
+    print("Nama:", nama_pegawai)
+    print("Jabatan:", jabatan_kerja)
+    print("Gaji Pokok: Rp", int(gaji_pokok_bulanan))
+    print("Tunjangan (", int(bonus_persen * 100), "%): Rp", int(nilai_tunjangan))
+    print("Potongan PPh (5%): Rp", int(potongan_pajak))
+    print("GAJI BERSIH: Rp", int(gaji_akhir))
+    return gaji_akhir
+#awalannya
+print("Masukkan Data Pegawai")
+nama_input = input("Nama Pegawai: ")
+jabatan_input = input("Jabatan (Manager/Staff/Lainnya): ")
+# Input gaji langsung diubah ke integer
+gaji_input = input("Gaji Pokok Bulanan: ")
+hitung_gaji_bersih(nama_input, jabatan_input, gaji_input)

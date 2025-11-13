@@ -1,0 +1,68 @@
+data = []
+
+def tambah():
+    angka = int(input("Masukkan angka: "))
+    data.append(angka)
+
+def tampilkan():
+    print("Data:", data)
+
+def ubah_angka():
+    indeks = int(input("Masukkan indeks yang ingin diubah: "))
+    if 0 <= indeks < len(data):
+        angka_baru = int(input("Masukkan angka baru: "))
+        data[indeks] = angka_baru
+        print("Data berhasil diubah.")
+    else:
+        print("Indeks tidak valid.")
+
+def hapus():
+    angka = int(input("Masukkan angka yang ingin dihapus: "))
+    if angka in data:
+        data.remove(angka)
+        print("Angka dihapus.")
+    else:
+        print("Angka tidak ditemukan.")
+
+def cek_pembagian():
+    total = sum(data)
+    if total % 2 != 0:
+        print(False)
+        return
+    target = total // 2
+    subset = []
+    def cari(jumlah, indeks):
+        if jumlah == target:
+            return True
+        if jumlah > target or indeks == len(data):
+            return False
+        return cari(jumlah + data[indeks], indeks + 1) or cari(jumlah, indeks + 1)
+    print(cari(0, 0))
+
+while True:
+    print()
+    print("Menu:")
+    print("1. Tambah angka")
+    print("2. Tampilkan data")
+    print("3. Ubah angka")
+    print("4. Hapus angka")
+    print("5. Cek pembagian")
+    print("6. Keluar")
+
+    pilihan = input("Pilih menu (1-6): ")
+
+    if pilihan == "1":
+        tambah()
+    elif pilihan == "2":
+        tampilkan()
+    elif pilihan == "3":
+        ubah_angka()
+    elif pilihan == "4":
+        hapus()
+    elif pilihan == "5":
+        cek_pembagian()
+    elif pilihan == "6":
+        print("Program selesai.")
+        break
+    else:
+        print("Pilihan tidak valid.")

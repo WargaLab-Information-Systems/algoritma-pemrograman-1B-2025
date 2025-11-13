@@ -1,0 +1,146 @@
+kunjungan = []
+id_atrian = 1
+
+while True:
+    print()
+    print("=== sistem kunjungan santri ===")
+    print("1.tambah data pengunjung")
+    print("2.tampilkan semua data pengunjung")
+    print("3.hapus data pengunjung")
+    print("4.keluar")
+    pilihan = input("pilih menu:")
+    print()
+
+    if pilihan == "1":
+        nm_pengunjung = input("nama pengunjung:")
+        nm_santri = input("nama santri yang dikunjungi:")
+        daerah = input("daerah asal(sumatra/kalimantan/jawa):")
+
+        kunjungan.append([id_atrian, nm_pengunjung, nm_santri, daerah])
+        print()
+        print("data berhasil ditambahkan dengan id antrian:", id_atrian)
+        id_atrian += 1
+
+    elif pilihan == "2":
+        print("daftar kunjungan santri")
+        urut_daerah = ["sumatra", "kalimantan", "jawa"]
+        for daerah in urut_daerah:
+            print(f"daerah: {daerah}")
+            for data in kunjungan:
+                if data[3] == daerah:
+                    print(f"id:{data[0]} | pengunjung: {data[1]} | santri: {data[2]}")
+    elif pilihan == "3":
+        hapus = int(input("masukkan id santri yang ingin dihapus:"))
+        ditemukan = False
+        for data in kunjungan:
+            if data[0] == hapus:
+                kunjungan.remove(data)
+                ditemukan = True
+                print("data berhasil dihapus")
+                break
+        if not ditemukan:
+            print("id tidak ditemukan")
+    elif pilihan == "4":
+        print("program selesai")
+        break
+    else:
+        print("pilihan tidak valid")
+
+# data_kunjungan = []  # List utama yang akan diisi unuk semuanya
+# id_berikutnya = 1     # ID yang dimulai dari 1
+
+# def tambah_kunjungan():
+#     global id_berikutnya
+#     print("\n=== Tambah Data Kunjungan ===")
+#     nama_pengunjung = input("Nama pengunjung: ")
+#     nama_santri = input("Nama santri yang dijenguk: ")
+#     asal = input("Daerah asal (Sumatra/Kalimantan/Jawa): ").lower()
+
+#     if asal == "sumatra" or asal == "kalimantan" or asal == "jawa":
+#         data_kunjungan.append([id_berikutnya, nama_pengunjung, nama_santri, asal])
+#         id_berikutnya += 1
+#         print("Data berhasil ditambahkan.")
+#     else:
+#         print("Daerah tidak valid. Hanya boleh: Sumatra, Kalimantan, atau Jawa.")
+
+# def tampilkan_kunjungan():
+#     print("\n=== Daftar Kunjungan Santri ===")
+#     urutan_daerah = ["sumatra", "kalimantan", "jawa"]
+#     ada_data = False
+
+#     for daerah in urutan_daerah:
+#         kelompok = []
+
+#         # Ambil data berdasarkan daerah (index ke-3)
+#         for data in data_kunjungan:
+#             if data[3] == daerah:
+#                 kelompok.append(data[:])  # [:] slicing semua elemen dari data
+
+#         #mengurutkan id dari pertama yakni indeks 0
+#         for i in range(len(kelompok) - 1):
+#             for j in range(i + 1, len(kelompok)):
+#                 if kelompok[i][0] > kelompok[j][0]:
+#                     kelompok[i], kelompok[j] = kelompok[j], kelompok[i]
+
+#         if len(kelompok) > 0:
+#             print(f"\n      --- Pengunjung dari {daerah.upper()[0] + daerah[1:]} ---")
+#             for baris in kelompok:
+#                 print("ID", baris[0], ": Pengunjung (", baris[1], ") | Santri (", baris[2], ")", sep="")
+#             ada_data = True
+
+#     if not ada_data:
+#         print("Belum ada data kunjungan.")
+
+# def hapus_kunjungan():
+#     print("\n=== Hapus Data Kunjungan ===")
+#     id_input = input("Masukkan ID antrian yang ingin dihapus: ")
+
+#     # membaca bahwa yang di masukkkan angka dan bkan yang lain
+#     if id_input == "":
+#         print("Input tidak boleh kosong.")
+#         return
+
+#     valid = True
+#     for karakter in id_input:
+#         if karakter < '0' or karakter > '9':
+#             valid = False
+#             break
+
+#     if not valid:
+#         print("Input harus berupa angka.")
+#         return
+
+#     # Konversi manual ke integer
+#     id_hapus = 0
+#     for karakter in id_input:
+#         id_hapus = id_hapus * 10 + (ord(karakter) - ord('0'))
+
+#     for i in range(len(data_kunjungan)):
+#         if data_kunjungan[i][0] == id_hapus:
+#             del data_kunjungan[i]
+#             print("Data berhasil dihapus.")
+#             return
+
+#     print("ID tidak ditemukan.")
+
+# def menu():
+#     while True:
+#         print("\n=== Sistem Kunjungan Santri ===")
+#         print("1. Tambah Kunjungan")
+#         print("2. Tampilkan Daftar Kunjungan")
+#         print("3. Hapus Kunjungan")
+#         print("4. Keluar")
+#         pilihan = input("Pilih menu (1-4): ")
+
+#         if pilihan == "1":
+#             tambah_kunjungan()
+#         elif pilihan == "2":
+#             tampilkan_kunjungan()
+#         elif pilihan == "3":
+#             hapus_kunjungan()
+#         elif pilihan == "4":
+#             print("Terima kasih. Program selesai.")
+#             break
+#         else:
+#             print("Pilihan tidak valid. Silakan coba lagi.")
+# menu()

@@ -1,0 +1,55 @@
+#soal no 2
+total_gaji = 0
+total_lembur = 0
+total_bonus_shift_malam = 0
+
+# Perulangan selama 7 hari (seminggu)
+for hari in range(1, 8):
+    print(f"Hari ke-{hari}:")
+    
+    # Input jam lembur dengan validasi
+    jam_lembur = input("Masukkan jumlah jam lembur: ")
+    while not jam_lembur.isdigit() or int(jam_lembur) < 0:
+        print("Input tidak valid. Masukkan angka positif saja.")
+        jam_lembur = input("Masukkan jumlah jam lembur: ")
+    jam_lembur = int(jam_lembur)
+    
+    # Input shift malam dengan validasi
+    shift_malam = input("Apakah shift malam? (y/n): ").lower()
+    while shift_malam not in ['y', 'n']:
+        print("Input tidak valid. Masukkan 'y' untuk ya atau 'n' untuk tidak.")
+        shift_malam = input("Apakah shift malam? (y/n): ").lower()
+
+    # Gaji pokok per hari
+    gaji_harian = 100_000
+
+    # Hitung tambahan lembur
+    if jam_lembur > 8:
+        print("Lembur melebihi batas, tidak dihitung.")
+        tambahan_lembur = 0
+    elif jam_lembur == 8:
+        tambahan_lembur = 300_000
+    elif jam_lembur >= 6:  # untuk 6 atau 7 jam
+        tambahan_lembur = 200_000
+    elif jam_lembur >= 4:  # untuk 4 atau 5 jam
+        tambahan_lembur = 100_000
+    elif jam_lembur >= 1:  # untuk 1-3 jam
+        tambahan_lembur = jam_lembur * 25_000
+    else:
+        tambahan_lembur = 0  # jika tidak lembur
+
+    # Tambah bonus shift malam jika ada
+    bonus_shift = 50_000 if shift_malam == 'y' else 0
+    
+    # Hitung total gaji hari itu
+    total_harian = gaji_harian + tambahan_lembur + bonus_shift
+    total_gaji += total_harian
+    total_lembur += jam_lembur
+    total_bonus_shift_malam += bonus_shift
+
+    print(f"Gaji hari ke-{hari}: Rp{total_harian:,}")
+    
+print("\n=== Rangkuman Gaji Mingguan ===")
+print(f"Total jam lembur selama seminggu: {total_lembur} jam")
+print(f"Total bonus shift malam: Rp{total_bonus_shift_malam:,}")
+print(f"Total gaji seminggu: Rp{total_gaji:,}")

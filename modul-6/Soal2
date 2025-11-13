@@ -1,0 +1,31 @@
+def gabung_tuple(t1, t2):
+    gabung = t1 + t2
+    unik = []
+    for i in gabung:
+        if i not in unik:
+            unik.append(i)
+
+    for i in range(len(unik)):
+        for j in range(i + 1, len(unik)):
+            if unik[i] < unik[j]:
+                unik[i], unik[j] = unik[j], unik[i]
+    return tuple(unik)
+
+print("=== Program Gabung Tuple ===")
+t1_input = input("Masukkan angka tuple pertama (pisahkan dengan spasi): ")
+t2_input = input("Masukkan angka tuple kedua (pisahkan dengan spasi): ")
+
+t1_list = []
+for angka in t1_input.split():
+    t1_list.append(int(angka))
+
+t2_list = []
+for angka in t2_input.split():
+    t2_list.append(int(angka))
+
+t1 = tuple(t1_list)
+t2 = tuple(t2_list)
+
+hasil = gabung_tuple(t1, t2)
+print("Hasil gabungan tuple (descending, tanpa duplikat):")
+print(hasil)

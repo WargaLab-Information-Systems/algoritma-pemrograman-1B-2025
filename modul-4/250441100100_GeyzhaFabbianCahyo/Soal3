@@ -1,0 +1,34 @@
+# # #soal3
+n = int(input("Masukkan jumlah baris: "))
+for i in range(1, n + 1):
+    #kirinya
+    for j in range(1, i + 1):
+        print(j, end="")
+    #tebgahnya
+    for k in range((n - i) * 2):
+        print(" ", end="")
+    #kanannya
+    for l in range(i, 0, -1):
+        print(l, end="")
+    print()
+
+
+def hitung_tagihan(pemakaian):
+    tarif = 1500
+    total = pemakaian * tarif
+    return total
+
+def kategori(pemakaian):
+    if pemakaian >= 500:
+        return "Penggunaan Tinggi"
+    else:
+        return "Penggunaan Normal"
+
+# Program utama
+pemakaian = float(input("Masukkan jumlah pemakaian listrik (kWh): "))
+total_tagihan = hitung_tagihan(pemakaian)
+kategori_penggunaan = kategori(pemakaian)
+
+print(f"Total tagihan listrik: Rp {total_tagihan:,.0f}")
+print(f"Kategori penggunaan listrik: {kategori_penggunaan}")
+

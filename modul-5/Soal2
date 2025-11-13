@@ -1,0 +1,33 @@
+def cek_anagram(kata1, kata2):
+    kata1 = kata1.lower()
+    kata2 = kata2.lower()
+
+    kata1_bersih = ""
+    kata2_bersih = ""
+    for huruf in kata1:
+        if huruf != " ":
+            kata1_bersih += huruf
+    for huruf in kata2:
+        if huruf != " ":
+            kata2_bersih += huruf
+
+    # Jika panjang berbeda, langsung bukan anagram
+    if len(kata1_bersih) != len(kata2_bersih):
+        return False
+
+    # Hitung jumlah kemunculan tiap huruf secara manual
+    for huruf in kata1_bersih:
+        if kata1_bersih.count(huruf) != kata2_bersih.count(huruf):
+            return False
+
+    return True
+
+
+# Program utama (dinamis)
+kata1 = input("Masukkan kata pertama: ")
+kata2 = input("Masukkan kata kedua: ")
+
+if cek_anagram(kata1, kata2):
+    print(f"'{kata1}' dan '{kata2}' adalah anagram.")
+else:
+    print(f"'{kata1}' dan '{kata2}' bukan anagram.")
