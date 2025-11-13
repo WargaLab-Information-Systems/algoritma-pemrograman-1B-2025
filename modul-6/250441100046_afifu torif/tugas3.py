@@ -4,18 +4,22 @@ def cek_pembagian_sama(data):
     total = sum(data)
     # Jika total tidak genap, langsung tidak bisa dibagi
     if total % 2 != 0:
-        return False
+        return None  # Tidak bisa dibagi dua sama besar
     
     target = total // 2
     jumlah_sementara = 0
-    
-    # Kita coba jumlahkan dari awal, apakah ada titik pembagian
+    bagian_kiri = []
+
+    # Coba cari titik pembagian
     for angka in data:
         jumlah_sementara += angka
+        bagian_kiri.append(angka)
         if jumlah_sementara == target:
-            return True
+            # Bagian kiri dan kanan ditemukan
+            bagian_kanan = data[len(bagian_kiri):]
+            return (bagian_kiri, bagian_kanan)
     
-    return False
+    return None  # Tidak ditemukan titik pembagian
 
 
 while True:
@@ -30,9 +34,11 @@ while True:
     pilihan = input("Pilih menu (1-6): ")
 
     if pilihan == "1":
-        angka = int(input("Masukkan angka yang ingin ditambah: "))
-        data.append(angka)
-        print("Angka berhasil ditambahkan.")
+        jumlah = int(input("Masukkan jumlah angka yang ingin ditambah: "))
+        for i in range(jumlah):
+            angka = int(input(f"Masukkan angka ke-{i+1}: "))
+            data.append(angka)
+        print(f"{jumlah} angka berhasil ditambahkan:", data)
 
     elif pilihan == "2":
         print("Daftar angka:", data)
@@ -61,8 +67,12 @@ while True:
             print("Data masih kosong.")
 
     elif pilihan == "5":
-        if cek_pembagian_sama(data):
+        hasil = cek_pembagian_sama(data)
+        if hasil:
+            kiri, kanan = hasil
             print("True — Deret dapat dibagi menjadi dua bagian dengan jumlah sama.")
+            print(f"Bagian kiri: {kiri}  → jumlah = {sum(kiri)}")
+            print(f"Bagian kanan: {kanan}  → jumlah = {sum(kanan)}")
         else:
             print("False — Tidak ada pembagian dengan jumlah sama.")
 
