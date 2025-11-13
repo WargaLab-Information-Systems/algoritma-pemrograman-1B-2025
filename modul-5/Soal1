@@ -21,4 +21,3 @@ while lagi:
     lagi = input("Apakah anda ingin mencoba lagi? (y/n): ")
     if lagi == "n":
         break
-
