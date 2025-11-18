@@ -1,0 +1,14 @@
+Buatlah program Rental Motor aconk dengan kriteria :
+1. Rental Motor Aconk Menyediakan 3 pilihan jenis motor dengan harga sewa Motor Matic = Rp. 50.000.00.
+Motor Trail = 100.000.00. Motor Sport = 75.000.00.
+2. Asuransi sebesar Rp. 15.000.00 Jika sewa lebih dari 3 hari Penyewaan (Berlaku Kelipatan)
+3. Ada diskon 10% jika Subtotal lebih dari Rp. 150.000.00 (Tidak berlaku kelipatan)
+4. Diskon tambahan 5% jika memasukkan Kupon “AconkGG” (CaseSensitive)
+5. Ada perulangan jika ingin melakukan penyewaan kembali
+6. Dibuat secara kompleks (memperhitungkan setiap kondisi benar/salah)
+7. Gunakan Tools VSCode
+8. MATIKAN Internet dan DISABLE Extension VSCode.
+
+Pengumpulan melalui Classroom dan Github dengan penamaan file rar/zip: UTS_ALPRO1A_NIM_Nama
+Contoh: UTS_ALPRO1A_25-079_AconkGemink
+File berisi Code, Screenshoot, dan README (Penjelasan)

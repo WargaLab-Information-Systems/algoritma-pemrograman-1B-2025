@@ -1,0 +1,1 @@
+jadi program tersebut memasukkan input untuk memilih motor apa yang di sewa
