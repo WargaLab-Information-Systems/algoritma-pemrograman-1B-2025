@@ -1,0 +1,111 @@
+kupon = {
+    "CIHUY11": {"diskon": 10, "stok": 10},
+    "ALOK99DM": {"diskon": 20, "stok": 7},
+    "PTOTO88": {"diskon": 30, "stok": 5},
+    "YAREU67": {"diskon": 40, "stok": 3},
+    "RONALDOGOAT": {"diskon": 50, "stok": 1}
+}
+
+def tampilkan_kupon():
+    print()
+    print("=== Daftar Kupon Tersedia ===")
+    if not kupon:
+        print("Tidak ada kupon yang tersedia.")
+    else:
+        for kode, data in kupon.items():
+            print(f"{kode} : {data['diskon']}% | Sisa: {data['stok']}x")
+
+def proses_transaksi():
+    print()
+    print("=== Proses Transaksi ===")
+    total_belanja = 0
+
+    while True:
+        barang = input("Masukan nama barang : ") #ketik '1' untuk selesai
+        if barang == "1":
+            break
+
+        # Input harga
+        while True:
+            try:
+                harga = float(input("Masukkan harga barang: Rp "))
+            except ValueError:
+                print("Input harus berupa angka!")
+                continue
+
+            if harga <= 0:
+                print("Masukan harga yang benar")
+                continue
+            break
+
+        while True:
+            try:
+                jumlah = int(input(f"Masukkan jumlah {barang}: "))
+            except ValueError:
+                print("Jumlah harus berupa angka!")
+                continue
+
+            if jumlah <= 0:
+                print("Masukan jumlah yang benar")
+                continue
+            break
+
+        subtotal = harga * jumlah
+        total_belanja += subtotal
+
+        print(f"Subtotal {barang}: Rp{subtotal}")
+
+    if total_belanja == 0:
+        print("Tidak ada barang yang dibeli.")
+        return
+    kode = input("Masukkan kode kupon: ").upper()
+
+    if kode not in kupon:
+        print("Kupon tidak valid!")
+        return
+
+    if kupon[kode]["stok"] <= 0:
+        print("Kupon sudah habis dipakai!")
+        return
+
+    diskon = kupon[kode]["diskon"]
+    potongan = total_belanja * (diskon / 100)
+    total_bayar = total_belanja - potongan
+
+    print()
+    print(f"Kupon valid! Diskon {diskon}% diberikan.")
+    print(f"Total belanja: Rp {total_belanja:.2f}")
+    print(f"Potongan: Rp {potongan:.2f}")
+    print(f"Total yang harus dibayar: Rp {total_bayar:.2f}")
+
+    # Kurangi jumlah pemakaian kupon
+    kupon[kode]["stok"] -= 1
+
+    # Jika kupon habis, hapus
+    if kupon[kode]["stok"] == 0:
+        del kupon[kode]
+        print(f"Kupon {kode} telah habis dan dihapus.")
+    else:
+        print(f"Sisa pemakaian kupon {kode} : {kupon[kode]['stok']}x")
+
+def menu():
+    while True:
+        print()
+        print("=== MENU KASIR ===")
+        print("1. Tampilkan semua kupon")
+        print("2. Proses transaksi")
+        print("3. Keluar")
+
+        pilihan = input("Pilih menu: ")
+
+        if pilihan == "1":
+            tampilkan_kupon()
+        elif pilihan == "2":
+            proses_transaksi()
+        elif pilihan == "3":
+            print("Program selesai.")
+            break
+        else:
+            print("Tolong pilih menu di atas!")
+
+menu()

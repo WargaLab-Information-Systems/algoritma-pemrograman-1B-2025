@@ -1,0 +1,23 @@
+# Meminta input jumlah baris lampu
+while True:
+    jumlah_baris = input("Masukkan jumlah baris lampu: ")
+    if not jumlah_baris.isdigit() or int(jumlah_baris) <= 0:
+        print("Input tidak valid. Masukkan angka positif saja.")
+        continue
+    else:
+        break
+for y in range(int(1), int(jumlah_baris) + 1): # Perulangan untuk setiap baris lampu
+    # Meminta jumlah lampu di baris ke-y
+    jumlah_lampu = int(input(f"Masukkan jumlah lampu pada baris ke-{y}: "))
+
+    # Perulangan untuk setiap lampu di baris tersebut
+    for x in range(1, jumlah_lampu + 1):
+        # Jika nomor lampu kelipatan 3, berarti rusak
+        if x % 3 == 0:
+            print(f"Lampu ke-{x} pada baris {y} rusak.")
+        else:
+            print(f"Lampu ke-{x} pada baris {y} menyala.")
+    
+    # Jika baris ini adalah baris terakhir
+    if y == int(jumlah_baris):
+        print("Periksa sambungan daya utama.")

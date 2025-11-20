@@ -1,0 +1,115 @@
+inventaris = {}
+
+def tampilkan_barang():
+    if inventaris == {}:
+        print("== Tidak ada barang didalam inventaris ==")
+    else:
+        for id in inventaris:
+            data = inventaris[id]
+            print(f"ID: {id}, Nama Barang: {data[0]}, Harga = Rp{data[1]}, Stok = {data[2]}")
+
+def cari_barang():
+    id = input("Masukkan ID barang yang dicari: ")
+    if id in inventaris:
+        data = inventaris[id]
+        print(f"ID: {id}, Nama Barang: {data[0]}, Harga = Rp{data[1]}, Stok = {data[2]}")
+    else:
+        print("ID barang tidak ditemukan")
+
+def tambah_barang():
+    nama = input("Masukkan nama barang: ")
+    id = input("Masukkan ID barang: ")
+
+    if id in inventaris:
+        print("ID barang sudah ada")
+
+    else:
+        while True:
+            harga = input("Masukkan harga barang: Rp.")
+
+            harganya = True
+            for angka in harga:
+                if angka < '0' or angka > '9':
+                    harganya = False
+                    break
+
+            if harganya == False:
+                print("Tolong masukkan harga berupa angka saja")
+            else:
+                break
+
+        while True:
+            stok = input("Masukkan stok barang: ")
+
+            stoknya = True
+            for nomor in stok:
+                if nomor < '0' or nomor > '9':
+                    stoknya = False
+                    break
+
+            if stoknya == False:
+                print("Tolong masukkan stok berupa angka saja")
+            else:
+                break
+
+        inventaris[id] = [nama, harga, stok]
+        print("Barang berhasil ditambahkan")
+
+def update_stok():
+    id = input("Masukkan ID yang mau diperbarui: ")
+
+    if id in inventaris:
+        while True:
+            baru = input("Masukkan stok baru: ")
+
+            stoknya = True
+            for nomor in baru:
+                if nomor < '0' or nomor > '9':
+                    stoknya = False
+                    break
+
+            if stoknya == False:
+                print("Tolong masukkan berupa angka")
+            else:
+                inventaris[id][2] = baru
+                print("Stok berhasil diperbarui")
+                break
+    else:
+        print("ID barang tidak ditemukan")
+
+def hapus_barang():
+    id = input("Masukkan ID yang mau dihapus: ")
+
+    if id in inventaris:
+        del inventaris[id]
+        print("Barang berhasil dihapus")
+    else:
+        print("ID barang tidak ditemukan")
+
+# ===== MENU UTAMA =====
+while True:
+    print("\n=== Menu Inventaris Barang ===")
+    print("1. Tampilkan semua barang")
+    print("2. Cari barang (Gunakan ID barang)")
+    print("3. Tambahkan barang baru")
+    print("4. Perbarui stok barang")
+    print("5. Hapus barang")
+    print("6. Keluar")
+
+    pilih = input("Pilih menu (1-6): ")
+
+    if pilih == "1":
+        tampilkan_barang()
+    elif pilih == "2":
+        cari_barang()
+    elif pilih == "3":
+        tambah_barang()
+    elif pilih == "4":
+        update_stok()
+    elif pilih == "5":
+        hapus_barang()
+    elif pilih == "6":
+        print("Program selesai, Terima kasih")
+        break
+    else:
+        print("Tolong pilih menu yang tersedia.")

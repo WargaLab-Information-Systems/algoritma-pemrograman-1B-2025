@@ -1,0 +1,75 @@
+def tambah_data(kunjungan, id_atrian):
+    """Menambah data pengunjung baru"""
+    nm_pengunjung = input("Nama pengunjung: ")
+    nm_santri = input("Nama santri yang dikunjungi: ")
+    daerah = input("Daerah asal (sumatra/kalimantan/jawa): ")
+
+    kunjungan.append([id_atrian, nm_pengunjung, nm_santri, daerah])
+    print(f"Data berhasil ditambahkan dengan ID antrian: {id_atrian}")
+    id_atrian += 1
+    return kunjungan, id_atrian
+
+def tampilkan_data(kunjungan):
+    """Menampilkan daftar seluruh kunjungan"""
+    if not kunjungan:
+        print("\nBelum ada data kunjungan.")
+        return
+
+    print("\n=== Daftar Kunjungan Santri ===")
+    urut_daerah = ["sumatra", "kalimantan", "jawa"]
+    for daerah in urut_daerah:
+        print(f"\nDaerah: {daerah}")
+        ditemukan = False
+        for data in kunjungan:
+            if data[3] == daerah:
+                print(f"ID: {data[0]} | Pengunjung: {data[1]} | Santri: {data[2]}")
+                ditemukan = True
+        if not ditemukan:
+            print("- Tidak ada data dari daerah ini -")
+
+def hapus_data(kunjungan):
+    """Menghapus data pengunjung berdasarkan ID"""
+    try:
+        hapus = int(input("Masukkan ID pengunjung yang ingin dihapus: "))
+        ditemukan = False
+        for data in kunjungan:
+            if data[0] == hapus:
+                kunjungan.remove(data)
+                ditemukan = True
+                print("Data berhasil dihapus.")
+                break
+        if not ditemukan:
+            print("ID tidak ditemukan.")
+    except ValueError:
+        print("Input ID harus berupa angka!")
+    return kunjungan
+
+def menu():
+    """Menampilkan pilihan menu utama"""
+    print("\n=== Sistem Kunjungan Santri ===")
+    print("1. Tambah data pengunjung")
+    print("2. Tampilkan semua data pengunjung")
+    print("3. Hapus data pengunjung")
+    print("4. Keluar")
+
+def main():
+    kunjungan = []
+    id_atrian = 1
+
+    while True:
+        menu()
+        pilihan = input("Pilih menu: ")
+
+        if pilihan == "1":
+            kunjungan, id_atrian = tambah_data(kunjungan, id_atrian)
+        elif pilihan == "2":
+            tampilkan_data(kunjungan)
+        elif pilihan == "3":
+            kunjungan = hapus_data(kunjungan)
+        elif pilihan == "4":
+            print("Program selesai. Terima kasih.")
+            print(kunjungan)
+            break
+        else:
+            print("Pilihan tidak valid, silakan coba lagi.")
+main()
