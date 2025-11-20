@@ -1,0 +1,75 @@
+kontak = {}
+
+def tampilkan_kontak():
+    if not kontak:
+        print("Belum ada kontak.")
+        return
+    for nama, data in kontak.items():
+        print(f"Nama: {nama}, Telepon: {data[0]}, Email: {data[1]}")
+
+def cari_kontak():
+    nama = input("Masukkan nama kontak: ")
+    if nama in kontak:
+        print(f"Telepon: {kontak[nama][0]}, Email: {kontak[nama][1]}")
+    else:
+        print("Kontak tidak ditemukan.")
+
+def tambah_kontak():
+    name = input("Masukkan nama : ")
+
+    if name in kontak:
+        print("Kontak yang anda tambahkan sudah ada")
+
+    else:
+        while True:
+            telepon = input("Masukkan nomor teleponnya : ")
+
+            tlep = True
+            for nomor in telepon:
+                if nomor < '0' or nomor > '9':
+                    tlep = False
+                    break
+
+            if tlep == False:
+                print("Tolong masukkan nomor telepon yang benar!")
+            else:
+                email = input("Masukkan email : ")
+                kontak[name] = [telepon, email]
+                print("Kontak telah berhasil ditambahkan")
+                break   
+
+def update_email():
+    nama = input("Nama kontak yang ingin diupdate emailnya: ")
+    if nama in kontak:
+        email_baru = input("Email baru: ")
+        kontak[nama][1] = email_baru
+        print("Email berhasil diperbarui.")
+    else:
+        print("Kontak tidak ditemukan.")
+
+def hapus_kontak():
+    nama = input("Nama kontak yang ingin dihapus: ")
+    if nama in kontak:
+        del kontak[nama]
+        print("Kontak berhasil dihapus.")
+    else:
+        print("Kontak tidak ditemukan.")
+
+while True:
+    print("\n=== DIPILIH DIPILIH ===")
+    print("1. Tampilkan Kontak")
+    print("2. Cari Kontak")
+    print("3. Tambah Kontak")
+    print("4. Update Email Kontak")
+    print("5. Hapus Kontak")
+    print("6. Keluar")
+
+    pilih = input("Pilih menu: ")
+
+    if pilih == "1": tampilkan_kontak()
+    elif pilih == "2": cari_kontak()
+    elif pilih == "3": tambah_kontak()
+    elif pilih == "4": update_email()
+    elif pilih == "5": hapus_kontak()
+    elif pilih == "6": break
+    else: print("Menu tidak valid.")
