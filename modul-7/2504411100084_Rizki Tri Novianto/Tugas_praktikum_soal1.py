@@ -42,7 +42,7 @@ while True:
                     tlep = False
                     break
             if tlep == False:
-                print("Tolong masukkan berupa angka")
+                print("Tolong masukkan berupa angka atau jangan masukkan negatif dan simbol")
             else:
                 email = input ("Masukkan email : ")
                 kontak[name] = [telepon,email]

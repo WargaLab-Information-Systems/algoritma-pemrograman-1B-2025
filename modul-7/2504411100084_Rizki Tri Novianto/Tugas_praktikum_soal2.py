@@ -35,16 +35,16 @@ while True:
             print("id barang sudah ada")
         
         else:
-            harga =""
+            harga =input("Masukkan harga barang :  ")
 
             harganya = True
             for angka in harga:
-                if angka <= '0' or angka > '9':
+                if angka < '0' or angka > '9':
                     harganya = False
                     break
 
             if harganya == False:
-                print("Tolong masukkan berupa angka")
+                print("tolong masukkan berupa angka dan jangan masukan angka negatif ataupun simbol")
 
             else:
                 stok = input("masukkan stok barang: ")
@@ -63,7 +63,7 @@ while True:
                     break
 
             if stoknya == False:
-                print("Tolong masukkan berupa angka")
+                print("Tolong masukkan berupa angka dan jangan masukan angka negatif ataupun simbol")
             else:
                 inventaris[id][2] = baru
                 print("stok berhasil diperbarui")

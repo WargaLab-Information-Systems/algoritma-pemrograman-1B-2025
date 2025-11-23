@@ -1,3 +1,4 @@
+#Nomer 3
 kupon = {           
     "disc10": 10,
     "disc20": 20,
@@ -43,7 +44,7 @@ while True:
                 total = float(total)
                 break
             else:
-                print("Input tidak valid! Total belanja harus angka.")
+                print("Input tidak valid! Total belanja harus angka atau jangan negatif dan jangan gunakan simbol")
 
         kode = input("Masukkan kode kupon: ")
 
