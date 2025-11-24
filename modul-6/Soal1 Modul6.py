@@ -7,12 +7,12 @@ id_counter = 1  # Untuk memberi id_antrian otomatis
 
 def tambah_pengunjung():
     global id_counter
-    input("Masukkan nama pengunjung: ")
+    nama_pengunjung = input("Masukkan nama pengunjung: ")
     nama_santri = input("Masukkan nama santri yang dijenguk: ")
-    daerah_asal = input("Masunama_pengunjungkkan daerah asal (Sumatra/Kalimantan/Jawa): ")
+    daerah_asal = input("Masukkan nama pengunjung daerah asal (Sumatra/Kalimantan/Jawa): ")
 
     # Membuat sublist data
-    data = [id_counter, nama_pengunjung, nama_santri, daerah_asal]
+    data =[id_counter, nama_pengunjung, nama_santri, daerah_asal]
     data_kunjungan.append(data)
     print(f"Data pengunjung dengan ID {id_counter} berhasil ditambahkan!\n")
     id_counter += 1

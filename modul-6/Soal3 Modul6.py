@@ -18,7 +18,6 @@ def ubah_angka():
     if len(angka) == 0:
         print("Belum ada angka untuk diubah.\n")
         return
-    
     try:
         indeks = int(input("Masukkan indeks yang ingin diubah: "))
         if 0 <= indeks < len(angka):
@@ -34,16 +33,13 @@ def hapus_angka():
     if len(angka) == 0:
         print("Belum ada angka untuk dihapus.\n")
         return
-    
     try:
         indeks = int(input("Masukkan indeks yang ingin dihapus: "))
         if 0 <= indeks < len(angka):
             baru = []
-            # Salin semua elemen kecuali indeks yang dihapus
             for i in range(len(angka)):
                 if i != indeks:
                     baru += [angka[i]]
-            # Ganti isi list lama dengan list baru
             angka.clear()
             for item in baru:
                 angka.append(item)
@@ -58,25 +54,34 @@ def cek_pembagian():
         print("Belum ada angka untuk dicek.\n")
         return
 
-    # Hitung total manual
+    # Hitung total keseluruhan
     total = 0
     for i in angka:
         total += i
 
-    # Jika total ganjil, otomatis tidak bisa dibagi sama rata
+    print(f"Total keseluruhan angka: {angka} → jumlah = {total}\n")
+
     if total % 2 != 0:
-        print("False — tidak bisa dibagi dua bagian dengan jumlah yang sama.\n")
+        print(f"Karena total {total} adalah ganjil, maka tidak bisa dibagi dua bagian yang sama.\n")
         return
 
-    setengah = total // 2
-    jumlah = 0
-    for i in angka:
-        jumlah += i
-        if jumlah == setengah:
-            print("True — dapat dibagi menjadi dua bagian dengan jumlah yang sama.\n")
+    # Mencoba mencari titik pembagian
+    jumlah_kiri = 0
+    for i in range(len(angka)):
+        jumlah_kiri += angka[i]
+        jumlah_kanan = total - jumlah_kiri
+        kiri = angka[:i+1]
+        kanan = angka[i+1:]
+        print(f"Bagian kiri: {kiri} → jumlah = {jumlah_kiri}")
+        print(f"Bagian kanan: {kanan} → jumlah = {jumlah_kanan}")
+        print("--------------------------------------------------")
+
+        if jumlah_kiri == jumlah_kanan:
+            print("\n✅ True — dapat dibagi menjadi dua bagian dengan jumlah yang sama.")
+            print(f"Total kiri = {jumlah_kiri}, Total kanan = {jumlah_kanan}\n")
             return
 
-    print("False — tidak bisa dibagi dua bagian yang seimbang.\n")
+    print("\n❌ False — tidak bisa dibagi menjadi dua bagian dengan jumlah yang seimbang.\n")
 
 
 # === Program Utama ===
