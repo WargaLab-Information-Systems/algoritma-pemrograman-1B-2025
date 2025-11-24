@@ -1,0 +1,61 @@
+def tampilkan_menu():
+    print("\nMenu:")
+    print("1. Tambah Data Pengunjung")
+    print("2. Tampilkan Daftar Pengunjung")
+    print("3. Hapus Data Pengunjung")
+    print("4. Keluar")
+
+def tambah_pengunjung(data_pengunjung, id_antrian):
+    nama_pengunjung = input("Masukkan nama pengunjung: ")
+    nama_santri = input("Masukkan nama santri yang dijenguk: ")
+    daerah_asal = input("Masukkan daerah asal (Sumatra/Kalimantan/Jawa): ").capitalize()
+    data_pengunjung.append([id_antrian, nama_pengunjung, nama_santri, daerah_asal])
+
+def tampilkan_pengunjung(data_pengunjung):
+    pengunjung_sumatra = []
+    pengunjung_kalimantan = []
+    pengunjung_jawa = []
+    
+    for pengunjung in data_pengunjung:
+        if pengunjung[3] == 'Sumatra':
+            pengunjung_sumatra.append(pengunjung)
+        elif pengunjung[3] == 'Jawa':
+            pengunjung_jawa.append(pengunjung) 
+        elif pengunjung[3] == 'Kalimantan':
+            pengunjung_kalimantan.append(pengunjung)
+
+    print("\nDaftar Pengunjung:")
+    for pengunjung in pengunjung_sumatra + pengunjung_kalimantan + pengunjung_jawa:
+        print(f"ID Antrian: {pengunjung[0]}, Nama Pengunjung: {pengunjung[1]}, Nama Santri: {pengunjung[2]}, Daerah Asal: {pengunjung[3]}")
+
+def hapus_pengunjung(data_pengunjung):
+    id_antrian = int(input("Masukkan ID Antrian yang akan dihapus: "))
+    for pengunjung in data_pengunjung:
+        if pengunjung[0] == id_antrian:
+            data_pengunjung.remove(pengunjung)
+            print("Data pengunjung berhasil dihapus.")
+            return
+    print("ID Antrian tidak ditemukan.")
+
+def menu():
+    data_pengunjung = []
+    id_antrian = 1
+    
+    while True:
+        tampilkan_menu()
+        pilihan = input("Pilih menu (1-4): ")
+        
+        if pilihan == '1':
+            tambah_pengunjung(data_pengunjung, id_antrian)
+            id_antrian += 1
+        elif pilihan == '2':
+            tampilkan_pengunjung(data_pengunjung)
+        elif pilihan == '3':
+            hapus_pengunjung(data_pengunjung)
+        elif pilihan == '4':
+            print("Program selesai.")
+            break
+        else:
+            print("Pilihan tidak valid! Silakan coba lagi.")
+
+menu()
