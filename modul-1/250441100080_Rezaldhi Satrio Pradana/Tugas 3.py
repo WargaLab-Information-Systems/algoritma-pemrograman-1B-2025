@@ -1,0 +1,5 @@
+bola_merah = int(8) 
+bola_biru = int(6)
+print("total semua bola:",(bola_merah + bola_biru))
+jumlah_kombinasi = int(364)
+print("jumlah kombinasi:",(jumlah_kombinasi))
